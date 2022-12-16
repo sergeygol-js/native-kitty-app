@@ -1,22 +1,16 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import { ADD_LIKE, DEL_CARDS } from '../store/reducerTypes'
-import { useDispatch } from 'react-redux'
+import Clipboard from '@react-native-clipboard/clipboard'
 
-export const Card = ({ item }: CardProps) => {
-  const dispatch = useDispatch()
-
-  const handleDeleteCard = (data: IList) => {
-    dispatch({ type: DEL_CARDS, payload: data })
+export const Card = ({ item, handleAddLike, handleDeleteCard }: CardProps) => {
+  const copyToClipboard = () => {
+    Clipboard.setString(item.url)
   }
-
-  const handleAddLike = (data: IList) =>
-    dispatch({ type: ADD_LIKE, payload: data })
 
   return (
     <View style={styles.imgWrap}>
-      <Text style={styles.text}>Ссылка на картинку {item.url}</Text>
+      <Text style={styles.text}>Ссылка на картинку: {item.url}</Text>
       <Text style={styles.text}>
         Оригинальный размер: {item.height}x{item.width}
       </Text>
@@ -40,11 +34,6 @@ export const Card = ({ item }: CardProps) => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#e08f51',
-    marginBottom: 120,
-    height: '100%',
-  },
   imgWrap: {
     padding: 30,
     paddingTop: 10,
@@ -72,5 +61,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginTop: 10,
     marginBottom: 10,
+  },
+  hyperLink: {
+    color: 'blue',
   },
 })

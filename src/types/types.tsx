@@ -8,6 +8,8 @@ interface IList {
 
 interface CardProps {
   item: IList
+  handleAddLike: Function
+  handleDeleteCard: Function
 }
 
 interface IState {
