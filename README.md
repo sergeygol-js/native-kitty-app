@@ -1,9 +1,9 @@
 # Native Kitty App
 
-Look at the kittens as much as you want. 
-My first react native app.
-Package manager: Yarn
-Tech: React Native, Redux, TypeScript, Expo
+- Look at the kittens as much as you want.
+- My first react native app.
+- Package manager: Yarn.
+- Tech: React Native, Redux, TypeScript, Expo.
 
 ## Review
 
