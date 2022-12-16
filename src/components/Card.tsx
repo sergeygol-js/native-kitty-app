@@ -1,13 +1,8 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import Clipboard from '@react-native-clipboard/clipboard'
 
 export const Card = ({ item, handleAddLike, handleDeleteCard }: CardProps) => {
-  const copyToClipboard = () => {
-    Clipboard.setString(item.url)
-  }
-
   return (
     <View style={styles.imgWrap}>
       <Text style={styles.text}>Ссылка на картинку: {item.url}</Text>

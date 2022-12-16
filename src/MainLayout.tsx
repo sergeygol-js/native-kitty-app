@@ -9,7 +9,9 @@ import { ADD_LIKE, DEL_CARDS, LOAD } from './store/reducerTypes'
 
 export const MainLayout = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const [updatePage, setUpdatePage] = useState(false)
   const URL = 'https://api.thecatapi.com/v1/images/search?limit=10'
+
   useEffect(() => {
     setIsLoading(true)
     axios
@@ -26,7 +28,7 @@ export const MainLayout = () => {
         setIsLoading(false)
       })
       .catch((e) => Alert.alert('Error\n' + e))
-  }, [])
+  }, [updatePage])
 
   const [onlyLiked, setOnlyLiked] = useState<boolean>(false)
   const handleShowOnlyLiked = () => {
@@ -60,6 +62,11 @@ export const MainLayout = () => {
               color={'green'}
               onPress={() => handleShowOnlyLiked()}
             />
+            <Button
+              title={'Update All Photos'}
+              color={'blue'}
+              onPress={() => setUpdatePage(!updatePage)}
+            />
           </View>
           <FlatList
             keyExtractor={(item: IList) => item.id}
@@ -89,8 +96,8 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   onlyLikeButton: {
-    alignSelf: 'center',
-    width: '50%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     marginTop: 10,
     marginBottom: 10,
   },

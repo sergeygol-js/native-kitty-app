@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export const Navbar = () => {
   return (
     <View style={styles.navbar}>
-      <Text style={styles.text}>Testing App</Text>
+      <Text style={styles.text}>Native Kitty App</Text>
     </View>
   )
 }
