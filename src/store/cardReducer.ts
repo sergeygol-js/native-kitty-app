@@ -1,12 +1,12 @@
-import { ADD_LIKE, DEL_CARDS, LOAD } from '../store/reducerTypes'
+import { ADD_LIKE, DEL_CARDS, LOAD } from './reducerTypes'
 
 const initialState = {
   cards: [],
 }
+
 export const cardReducer = (state: IState = initialState, action: Actions) => {
   switch (action.type) {
     case LOAD:
-      console.log(action)
       return { ...state, cards: action.payload }
     case ADD_LIKE:
       return {

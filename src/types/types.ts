@@ -17,7 +17,7 @@ interface IState {
 }
 
 interface Actions {
-  type: 'LOAD' | 'ADD_LIKE' | 'DEL_CARDS' | 'ILiked'
+  type: 'LOAD' | 'ADD_LIKE' | 'DEL_CARDS'
   payload: any
 }
 
